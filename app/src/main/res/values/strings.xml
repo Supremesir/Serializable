@@ -1,3 +1,11 @@
 <resources>
     <string name="app_name">Serializable</string>
+    <string name="name_hint">Name</string>
+    <string name="age_hint">Age</string>
+    <string name="math_hint">Math</string>
+    <string name="english_hint">English</string>
+    <string name="chinese_hint">Chinese</string>
+    
+    <string name="load_button">LOAD</string>
+    <string name="save_button">SAVE</string>
 </resources>
