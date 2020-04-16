@@ -8,4 +8,6 @@
     
     <string name="load_button">LOAD</string>
     <string name="save_button">SAVE</string>
+    
+    <string name="FILE_NAME">myfile.data</string>
 </resources>
