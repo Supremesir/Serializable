@@ -48,6 +48,7 @@ class Score implements Serializable{
     private int mathScore;
     private int englishScore;
     private int chineseScore;
+    private String grade;
 
     public Score(int mathScore, int englishScore, int chineseScore) {
         this.mathScore = mathScore;
@@ -55,11 +56,11 @@ class Score implements Serializable{
         this.chineseScore = chineseScore;
         String grade;
         if (mathScore >= 90 && englishScore >= 90 && chineseScore >= 90) {
-            grade = "A";
+            this.grade = "A";
         } else if (mathScore >= 80 && englishScore >= 80 && chineseScore >= 80) {
-            grade = "B";
+            this.grade = "B";
         } else {
-            grade = "C";
+            this.grade = "C";
         }
     }
 
@@ -85,5 +86,13 @@ class Score implements Serializable{
 
     public void setChineseScore(int chineseScore) {
         this.chineseScore = chineseScore;
+    }
+
+    public String getGrade() {
+        return grade;
+    }
+
+    public void setGrade(String grade) {
+        this.grade = grade;
     }
 }

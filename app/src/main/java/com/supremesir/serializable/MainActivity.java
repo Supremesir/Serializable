@@ -62,10 +62,12 @@ public class MainActivity extends AppCompatActivity {
                     ObjectInputStream objectInputStream = new ObjectInputStream(openFileInput(getResources().getString(R.string.FILE_NAME)));
                     Student student = (Student) objectInputStream.readObject();
                     binding.editTextName.setText(student.getName());
+                    // Integer 变量必须用String.valueOf()
                     binding.editTextAge.setText(String.valueOf(student.getAge()));
                     binding.editTextMath.setText(String.valueOf(student.getScore().getMathScore()));
                     binding.editTextEnglish.setText(String.valueOf(student.getScore().getEnglishScore()));
                     binding.editTextChinese.setText(String.valueOf(student.getScore().getChineseScore()));
+                    binding.textView.setText(student.getScore().getGrade());
                     Toast.makeText(MainActivity.this, "Data Loaded!", Toast.LENGTH_SHORT).show();
                     // binding.textView.setText(student.getScore().getClass());
                 } catch (IOException | ClassNotFoundException e) {
