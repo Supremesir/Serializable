@@ -57,14 +57,17 @@ public class MainActivity extends AppCompatActivity {
         binding.buttonLoad.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 try {
                     ObjectInputStream objectInputStream = new ObjectInputStream(openFileInput(getResources().getString(R.string.FILE_NAME)));
                     Student student = (Student) objectInputStream.readObject();
                     binding.editTextName.setText(student.getName());
-                    binding.editTextAge.setText(student.getAge());
-                    binding.editTextMath.setText(student.getScore().getMathScore());
-                    binding.editTextEnglish.setText(student.getScore().getEnglishScore());
-                    binding.editTextChinese.setText(student.getScore().getChineseScore());
+                    binding.editTextAge.setText(String.valueOf(student.getAge()));
+                    binding.editTextMath.setText(String.valueOf(student.getScore().getMathScore()));
+                    binding.editTextEnglish.setText(String.valueOf(student.getScore().getEnglishScore()));
+                    binding.editTextChinese.setText(String.valueOf(student.getScore().getChineseScore()));
+                    Toast.makeText(MainActivity.this, "Data Loaded!", Toast.LENGTH_SHORT).show();
+                    // binding.textView.setText(student.getScore().getClass());
                 } catch (IOException | ClassNotFoundException e) {
                     e.printStackTrace();
                 }
