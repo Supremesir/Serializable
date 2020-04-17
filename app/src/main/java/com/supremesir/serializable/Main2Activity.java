@@ -22,9 +22,9 @@ public class Main2Activity extends AppCompatActivity {
         Student1 student1 = bundle.getParcelable("student");
         binding.textViewName.setText(student1.getName());
         binding.textViewAge.setText(String.valueOf(student1.getAge()));
-//        binding.textViewMath.setText(String.valueOf(student1.getScore1().getMathScore()));
-//        binding.textViewEnglish.setText(String.valueOf(student1.getScore1().getEnglishScore()));
-//        binding.textViewChinese.setText(String.valueOf(student1.getScore1().getChineseScore()));
-//        binding.textViewGrade.setText(student1.getScore1().getGrade());
+        binding.textViewMath.setText(String.valueOf(student1.getScore1().getMathScore()));
+        binding.textViewEnglish.setText(String.valueOf(student1.getScore1().getEnglishScore()));
+        binding.textViewChinese.setText(String.valueOf(student1.getScore1().getChineseScore()));
+        binding.textViewGrade.setText(student1.getScore1().getGrade());
     }
 }

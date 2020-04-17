@@ -22,12 +22,14 @@ public class Student1 implements Parcelable {
     protected Student1(Parcel in) {
         name = in.readString();
         age = in.readInt();
+        score1 = in.readParcelable(Score1.class.getClassLoader());
     }
 
     @Override
     public void writeToParcel(Parcel dest, int flags) {
         dest.writeString(name);
         dest.writeInt(age);
+        dest.writeParcelable(score1, flags);
     }
 
     @Override
