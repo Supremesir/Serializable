@@ -11,12 +11,12 @@ import android.os.Parcelable;
 public class Student1 implements Parcelable {
     private String name;
     private int age;
-    private Score score;
+    private Score1 score1;
 
-    public Student1(String name, int age, Score score) {
+    public Student1(String name, int age, Score1 score1) {
         this.name = name;
         this.age = age;
-        this.score = score;
+        this.score1 = score1;
     }
 
     protected Student1(Parcel in) {
@@ -63,12 +63,12 @@ public class Student1 implements Parcelable {
         this.age = age;
     }
 
-    public Score getScore() {
-        return score;
+    public Score1 getScore1() {
+        return score1;
     }
 
-    public void setScore(Score score) {
-        this.score = score;
+    public void setScore1(Score1 score1) {
+        this.score1 = score1;
     }
 }
 
@@ -83,7 +83,6 @@ class Score1 implements Parcelable {
         this.mathScore = mathScore;
         this.englishScore = englishScore;
         this.chineseScore = chineseScore;
-        String grade;
         if (mathScore >= 90 && englishScore >= 90 && chineseScore >= 90) {
             this.grade = "A";
         } else if (mathScore >= 80 && englishScore >= 80 && chineseScore >= 80) {

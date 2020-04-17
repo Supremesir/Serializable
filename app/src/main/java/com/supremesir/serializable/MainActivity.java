@@ -2,6 +2,7 @@ package com.supremesir.serializable;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -27,13 +28,22 @@ public class MainActivity extends AppCompatActivity {
         binding.buttonSave.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 int math = Integer.parseInt(binding.editTextMath.getText().toString());
                 int english = Integer.parseInt(binding.editTextEnglish.getText().toString());
                 int chinese = Integer.parseInt(binding.editTextChinese.getText().toString());
-                Score score = new Score(math, english, chinese);
                 String name = binding.editTextName.getText().toString();
                 int age = Integer.parseInt(binding.editTextAge.getText().toString());
+                Score score = new Score(math, english, chinese);
                 Student student = new Student(name, age, score);
+                Score1 score1 = new Score1(math, english, chinese);
+                Student1 student1 = new Student1(name, age, score1);
+
+                Intent intent = new Intent(MainActivity.this, Main2Activity.class);
+                Bundle bundle = new Bundle();
+                bundle.putParcelable("student", student1);
+                intent.putExtra("data", bundle);
+                startActivity(intent);
 
                 try {
                     ObjectOutputStream objectOutputStream = new ObjectOutputStream(openFileOutput(getResources().getString(R.string.FILE_NAME), MODE_PRIVATE));

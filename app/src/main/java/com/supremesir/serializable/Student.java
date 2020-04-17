@@ -58,7 +58,6 @@ class Score implements Serializable{
         this.mathScore = mathScore;
         this.englishScore = englishScore;
         this.chineseScore = chineseScore;
-        String grade;
         if (mathScore >= 90 && englishScore >= 90 && chineseScore >= 90) {
             this.grade = "A";
         } else if (mathScore >= 80 && englishScore >= 80 && chineseScore >= 80) {
