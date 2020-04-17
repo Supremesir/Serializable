@@ -9,6 +9,9 @@ import java.io.Serializable;
 
 // transient 关键词表示 对某一个属性不做序列化
 public class Student implements Serializable {
+    // 对于不同的数据结构的标识
+    // 如果不手动写，系统会自动生成，且不同数据结构生成不同的
+    private static final long serialVersionUID = 5013468841441974555L;
     private String name;
     private int age;
     private Score score;
@@ -45,6 +48,7 @@ public class Student implements Serializable {
 }
 
 class Score implements Serializable{
+    private static final long serialVersionUID = 3317679076025674757L;
     private int mathScore;
     private int englishScore;
     private int chineseScore;
