@@ -34,17 +34,21 @@ public class MainActivity extends AppCompatActivity {
                 int chinese = Integer.parseInt(binding.editTextChinese.getText().toString());
                 String name = binding.editTextName.getText().toString();
                 int age = Integer.parseInt(binding.editTextAge.getText().toString());
+                // Serializable 序列化
                 Score score = new Score(math, english, chinese);
                 Student student = new Student(name, age, score);
+                // Parcelable 序列化
                 Score1 score1 = new Score1(math, english, chinese);
                 Student1 student1 = new Student1(name, age, score1);
 
+                // 将 Parcelable 序列化后的数据放在 Bundle 里， 通过 Intent 给其他 Activity 或者 Process
                 Intent intent = new Intent(MainActivity.this, Main2Activity.class);
                 Bundle bundle = new Bundle();
                 bundle.putParcelable("student", student1);
                 intent.putExtra("data", bundle);
                 startActivity(intent);
 
+                // 将 Serializable 序列化后的数据储存在文件系统里，便于其他 Activity 或者 Process 读取
                 try {
                     ObjectOutputStream objectOutputStream = new ObjectOutputStream(openFileOutput(getResources().getString(R.string.FILE_NAME), MODE_PRIVATE));
                     objectOutputStream.writeObject(student);
