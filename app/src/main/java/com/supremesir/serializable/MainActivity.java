@@ -8,6 +8,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 
+import com.google.gson.Gson;
 import com.supremesir.serializable.databinding.ActivityMainBinding;
 
 import java.io.IOException;
@@ -40,13 +41,9 @@ public class MainActivity extends AppCompatActivity {
                 // Parcelable 序列化
                 Score1 score1 = new Score1(math, english, chinese);
                 Student1 student1 = new Student1(name, age, score1);
-
-                // 将 Parcelable 序列化后的数据放在 Bundle 里， 通过 Intent 给其他 Activity 或者 Process
-                Intent intent = new Intent(MainActivity.this, Main2Activity.class);
-                Bundle bundle = new Bundle();
-                bundle.putParcelable("student", student1);
-                intent.putExtra("data", bundle);
-                startActivity(intent);
+                // JSON序列化
+                Score2 score2 = new Score2(math, english, chinese);
+                Student2 student2 = new Student2(name, age, score2);
 
                 // 将 Serializable 序列化后的数据储存在文件系统里，便于其他 Activity 或者 Process 读取
                 try {
@@ -65,6 +62,17 @@ public class MainActivity extends AppCompatActivity {
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
+
+                // 将 Parcelable 序列化后的数据放在 Bundle 里， 通过 Intent 给其他 Activity 或者 Process
+                Intent intent = new Intent(MainActivity.this, Main2Activity.class);
+                Bundle bundle = new Bundle();
+                bundle.putParcelable("student", student1);
+                intent.putExtra("data", bundle);
+                startActivity(intent);
+
+                // 使用 Gson
+                Gson gson = new Gson();
+                String jsonStudent2 = gson.toJson(student2);
             }
         });
 
