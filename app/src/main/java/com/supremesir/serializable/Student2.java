@@ -14,6 +14,8 @@ public class Student2 {
     @SerializedName("student_name")
     private String name;
     private int age;
+//    // 使用 transient 关键词可以忽律
+//    private transient int age;
     private Score2 score2;
 
     public Student2(String name, int age, Score2 score2) {
