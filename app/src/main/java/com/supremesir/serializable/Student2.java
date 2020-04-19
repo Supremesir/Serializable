@@ -1,6 +1,8 @@
 package com.supremesir.serializable;
 
 
+import com.google.gson.annotations.SerializedName;
+
 /**
  * @author HaoFan Fang
  * @date 2020/4/19 16:11
@@ -8,6 +10,8 @@ package com.supremesir.serializable;
 
 public class Student2 {
 
+    // 使用 @SerializedName() 可以为每个属性自定义名称
+    @SerializedName("student_name")
     private String name;
     private int age;
     private Score2 score2;
